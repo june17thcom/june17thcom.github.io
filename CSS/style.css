@@ -20,8 +20,9 @@
   --color-black--: #050a13;
   --color-blue--: #03e8f9;
   --color-orange--: #fd6413;
-  --color-gray--: #f0f0f075;
+  --color-gray--: #f0f0f0d4;
 
+  /* size */
   --size-max-width: 1200px;
 }
 
@@ -50,11 +51,11 @@ ul {
 a {
   text-decoration: 0;
   text-align: center;
-  color: var(--color-white--);
+  color: var(--color-text);
 }
 
 button {
-  background-color: transparents;
+  background-color: transparent;
   outline: 0;
   border: 0;
 }
@@ -76,11 +77,13 @@ button:focus {
 .title {
   font-size: 2.5rem;
   margin: 1rem 0;
+  color: var(--color-primary);
 }
 
 .description {
   font-size: 1.4rem;
   margin: 0.5rem 0;
+  color: var(--color-primary);
 }
 
 /*header*/
@@ -129,6 +132,8 @@ button:focus {
   border-radius: 4px;
 }
 
+/* Home */
+
 #home {
   background-color: var(--color-primary);
   color: var(--color-text);
@@ -151,7 +156,7 @@ button:focus {
 }
 
 .home__title--string {
-  color: var(--color-accent);
+  color: var(--color-accent-variant);
 }
 
 .home__description {
@@ -183,12 +188,13 @@ button:focus {
 }
 
 .skill {
-  background-color: var(--color-primary-variant);
-  padding: 2px 1rem;
+  background-color: var(--color-primary);
+  padding: 2rem 1rem;
   color: var(--color-text);
   border-radius: 1rem;
   cursor: default;
-  box-shadow: 4px 6pc 8px var(--color-primary);
+  box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.4);
+  width: 25rem;
 }
 
 .skill__icon {
@@ -198,8 +204,12 @@ button:focus {
   transition: all 300ms ease;
 }
 
-.skill:hover .skill__icon {
-  transform: rotate(250deg) scale(1.2);
+.skill.right:hover .skill__icon {
+  transform: rotate(-15deg) scale(1.2);
+}
+
+.skill.left:hover .skill__icon {
+  transform: rotate(15deg) scale(1.2);
 }
 
 .skill__title {
@@ -209,17 +219,19 @@ button:focus {
 }
 
 .jobs {
-  text-align: start; /* 언어에 따라 시작위치를 다르게 설정 */
+  text-align: start; /* 언어에 따라 시작 위치를 다르게 설정 */
 }
+
 .job {
   display: flex;
   align-items: center;
   gap: 8px;
   margin-bottom: 1rem;
 }
+
 .job__img {
-  width: 12rem;
-  height: 12rem;
+  width: 5rem;
+  height: 5rem;
 }
 
 .job__name {
@@ -235,10 +247,29 @@ button:focus {
   margin-left: 10%;
 }
 
+/*skills*/
+
 #skills {
   background-color: var(--color-primary-variant);
   color: beige;
-  background-color: #050a13;
+}
+
+.tools {
+  display: grid;
+  grid-template-columns: 6fr 4fr;
+  margin: 2rem 3rem;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.tools__title {
+  color: var(--color-accent);
+  margin: 1rem 0;
+  font-size: 1.2rem;
+}
+.tools__coding {
+  grid-row: span 2; /* 2개의 행을 차지하도록 설정 */
+  padding: 1rem;
+  background-color: var(--color-primary);
 }
 
 .bar {
@@ -267,38 +298,39 @@ button:focus {
 .tools__tools {
   padding: 1rem;
 }
-
 .tools__etc {
   padding: 1rem;
-  background-color: var(--color-primary);
-  filter: brightness(15%);
+  background-color: var(--color-accent);
+  filter: brightness(150%);
 }
+
+/*work*/
 
 #work {
   background-color: var(--color-primary);
   color: var(--color-text);
 }
 
-.categoriy {
+.categories {
   display: flex;
   justify-content: center;
   margin: 2.5rem;
   gap: 1rem;
 }
 
-.categories {
+.category {
   position: relative;
   color: var(--color-text);
   font-size: 1.1rem;
-  padding: 0.5rem;
-  border: solid;
-  border: #03e8f9;
+  padding: 0.5rem 3rem;
+  border-radius: 4px;
+  border: 1px solid var(--color-accent);
   cursor: pointer;
   white-space: nowrap;
 }
 
 .category--selected {
-  background-color: var(--color-black--);
+  background-color: var(--color-accent);
   color: var(--color-primary);
 }
 
@@ -307,9 +339,9 @@ button:focus {
   position: absolute;
   top: -20px;
   right: 15px;
-  width: 20px;
-  height: 25px;
-  line-height: 25px;
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
   border-radius: 100%;
   background-color: var(--color-accent-variant);
   color: var(--color-text);
@@ -374,6 +406,67 @@ display: block; 가상 요소를 블록 요소처럼 만들어, 크기 설정 �
   width: 50px;
   height: 5px;
   background-color: var(--color-accent);
+}
+
+.lisences {
+  margin: 3px;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.lisence__img {
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+  box-shadow: 0px 3px 8px var(--color-primary);
+}
+
+.lisence__bubble {
+  padding: 1rem;
+  border-radius: 30%;
+  box-shadow: var(--color-primary) 0px 3px 8px;
+}
+
+.lisence__bubble__name {
+  color: var(--color-accent);
+  font-weight: bold;
+  filter: brightness(70%);
+}
+
+/*Arrow-Up*/
+
+.arrow-up {
+  background-color: var(--color-primary);
+  position: fixed
+  border: ;
+  font-size: 1rem;
+  border-radius: 100%;
+  height: 4.5rem;
+  width: 4.5rem;
+  box-shadow: 5px 5px 4px var(--color-primary);
+}
+
+#contact {
+  background-color: var(--color-primary);
+  color: var(--color-text);
+}
+
+.contact__links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  font-size: 2rem;
+}
+
+.contact__link {
+  transition: color 250ms ease-in;
+}
+
+.contact__link {
+
 }
 
 /*태블릿*/
